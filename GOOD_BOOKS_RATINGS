@@ -1,0 +1,33 @@
+-- creating new table
+
+CREATE TABLE good_books (
+    id INTEGER PRIMARY KEY,
+    title TEXT,
+    author TEXT,
+    genre TEXT,
+    year_read INTEGER,
+    my_rating DECIMAL(4,2), 
+    goodreads_rating DECIMAL(4,2) 
+);
+
+-- assigning values into the columns
+
+INSERT INTO good_books (id, title, author, genre, year_read, my_rating, goodreads_rating) 
+VALUES 
+(1, 'The Handmaid''s Tale', 'Margaret Atwood', 'Dystopian fiction', 2023, 8.5, 9.2),
+(2, 'To Kill a Mockingbird', 'Harper Lee', 'Fiction', 2022, 9.0, 9.4),
+(3, '1984', 'George Orwell', 'Dystopian fiction', 2022, 9.5, 9.3),
+(4, 'The Catcher in the Rye', 'J.D. Salinger', 'Fiction', 2021, 7.5, 8.0),
+(5, 'The Great Gatsby', 'F. Scott Fitzgerald', 'Fiction', 2021, 8.0, 8.7),
+(6, 'Pride and Prejudice', 'Jane Austen', 'Romance', 2020, 8.5, 9.1),
+(7, 'The Hobbit', 'J.R.R. Tolkien', 'Fantasy', 2020, 8.0, 8.9),
+(8, 'Moby Dick', 'Herman Melville', 'Adventure', 2019, 7.0, 7.8),
+(9, 'War and Peace', 'Leo Tolstoy', 'Historical Fiction', 2018, 9.0, 9.5),
+(10, 'Harry Potter and the Deathly Hallows', 'J.K. Rowling', 'Children''s literature', 2017, 9.5, 9.6);
+
+-- Display a comparison between my ratings and gooadreads ratings from highest to lowest difference
+
+SELECT title, author,goodreads_rating,my_rating, (goodreads_rating-my_rating) as "my_prediction_difference"
+FROM good_books
+order by "my_prediction_difference" desc
+
